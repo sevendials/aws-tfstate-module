@@ -1,11 +1,11 @@
-# Configure the AWS Provider
-
 variable "bucket-name" {}
+
 variable "keybase-id" {
  default = "dglennie"
 }
 
 data "aws_caller_identity" "current" {}
+
 resource "aws_default_vpc" "default" {
     tags {
         Name = "Default VPC"
@@ -106,4 +106,3 @@ output "access_key" {
 output "lock_table" {
   value= "${aws_dynamodb_table.terraform_statelock.name}"
 }
-
